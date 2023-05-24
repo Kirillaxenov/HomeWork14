@@ -90,8 +90,9 @@ public class AviaSoulsTest {
         manager.add(t2);
         manager.add(t3);
         manager.add(t4);
-        Ticket[] result = manager.searchAndSortBy("Москва", "Минск", new TicketTimeComparator());
-        Assertions.assertNotNull(result);
+        Ticket[] expected = new Ticket[0];
+        Ticket[] actual = manager.searchAndSortBy("Москва", "Минск", new TicketTimeComparator());
+        Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test

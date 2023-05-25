@@ -106,16 +106,8 @@ public class AviaSoulsTest {
         manager.add(t2);
         manager.add(t3);
         manager.add(t4);
-        Ticket[] result = manager.searchAndSortBy("Москва", "Париж", new TicketTimeComparator());
-        Assertions.assertEquals("Москва", result[0].getFrom());
-        Assertions.assertEquals("Париж", result[0].getTo());
-        Assertions.assertEquals(11, result[0].getTimeFrom());
-        Assertions.assertEquals(19, result[0].getTimeTo());
-
-        Assertions.assertEquals("Москва", result[1].getFrom());
-        Assertions.assertEquals("Париж", result[1].getTo());
-        Assertions.assertEquals(8, result[1].getTimeFrom());
-        Assertions.assertEquals(20, result[1].getTimeTo());
-
+        Ticket[] expected = new Ticket[]{t1, t4};
+        Ticket[] actual = manager.searchAndSortBy("Москва", "Париж", new TicketTimeComparator());
+        Assertions.assertArrayEquals(expected, actual);
     }
 }
